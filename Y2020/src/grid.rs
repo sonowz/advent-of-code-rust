@@ -27,9 +27,9 @@ impl<T: Display> Display for Grid<T> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         for ref line in self.as_ref().into_iter() {
             for ref x in line.into_iter() {
-                write!(f, "{}", x);
+                write!(f, "{}", x).unwrap();
             }
-            write!(f, "\n");
+            write!(f, "\n").unwrap();
         }
         Ok(())
     }
