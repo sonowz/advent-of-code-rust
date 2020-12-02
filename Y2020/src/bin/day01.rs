@@ -5,9 +5,13 @@ use std::path::Path;
 
 use advent_of_code_rust_2020 as aoc;
 
+// Type Declarations //
+
 #[derive(FromStr, Add, Mul, PartialEq, Eq, Clone, Copy)]
 #[mul(forward)]
 struct Entry(i32);
+
+// Part 1 //
 
 fn solve1(entries: &[Entry]) -> i32 {
     let pairs = || entries.iter().enumerate();
@@ -24,6 +28,8 @@ fn solve1(entries: &[Entry]) -> i32 {
         .expect("Should have answer");
     (entries[i] * entries[j]).0
 }
+
+// Part 2 //
 
 fn solve2(entries: &[Entry]) -> i32 {
     let pairs = || entries.iter().enumerate();
@@ -43,6 +49,8 @@ fn solve2(entries: &[Entry]) -> i32 {
         .expect("Should have answer");
     (entries[i] * entries[j] * entries[k]).0
 }
+
+// I/O //
 
 fn main() {
     let entries: Vec<Entry> = aoc::io::read_file_vec(Path::new("inputs/day01.txt"));

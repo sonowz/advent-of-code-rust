@@ -1,9 +1,13 @@
 extern crate nom;
 use nom::character::complete::{char, digit1};
 use nom::combinator::{map_res, opt, recognize};
-use nom::{sequence, IResult};
+use nom::{error::ErrorKind, sequence, IResult};
 
 use std::str::FromStr;
+
+pub fn error(input: &str, error_kind: ErrorKind) -> nom::Err<nom::error::Error<&str>> {
+    nom::Err::Failure(nom::error::Error::new(input, error_kind))
+}
 
 pub fn unwrap_parsed<T>(result: IResult<&str, T>) -> T {
     match result {
