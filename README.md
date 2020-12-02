@@ -2,6 +2,8 @@
 
 This solution aims to write elegant, production level code.
 
+This is my first code to be written in Rust, so one may find some awkwardness in the code.
+
 - Use functional programming style
 - Prefer `map` function over `for` or `loop` statements
 - Use `newtype pattern` for better readablity and more strict typecheck

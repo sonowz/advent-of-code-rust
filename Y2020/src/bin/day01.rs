@@ -5,11 +5,11 @@ use std::path::Path;
 
 use advent_of_code_rust_2020 as aoc;
 
-#[derive(FromStr, Debug, Add, Mul, PartialEq, Eq, Clone, Copy)]
+#[derive(FromStr, Add, Mul, PartialEq, Eq, Clone, Copy)]
 #[mul(forward)]
 struct Entry(i32);
 
-fn solve1(entries: &Vec<Entry>) -> i32 {
+fn solve1(entries: &[Entry]) -> i32 {
     let pairs = || entries.iter().enumerate();
     let (i, j) = pairs()
         .find_map(|(i, &x)| {
@@ -25,7 +25,7 @@ fn solve1(entries: &Vec<Entry>) -> i32 {
     (entries[i] * entries[j]).0
 }
 
-fn solve2(entries: &Vec<Entry>) -> i32 {
+fn solve2(entries: &[Entry]) -> i32 {
     let pairs = || entries.iter().enumerate();
     let diff_3 = |i, j, k| i != j && j != k && k != i;
     let (i, j, k) = pairs()
