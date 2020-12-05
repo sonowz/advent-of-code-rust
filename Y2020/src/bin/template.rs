@@ -1,5 +1,4 @@
 extern crate derive_more;
-use derive_more::FromStr;
 
 use std::path::Path;
 
