@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::io::{BufRead, BufReader, Read};
 use std::iter::Iterator;
 use std::path::Path;
 use std::str::FromStr;
@@ -30,4 +30,15 @@ where
         .map(|s| s.chars().map(T::from).collect())
         .collect();
     Grid::from(vec)
+}
+
+// Returns strings (with newline), separated by blank line
+pub fn read_file_blankline(path: &Path) -> impl Iterator<Item = String> {
+    let mut input = String::new();
+    File::open(path)
+        .expect("File open error")
+        .read_to_string(&mut input)
+        .expect("File read error");
+    let lines_vec: Vec<_> = input.split("\n\n").map(|s| String::from(s)).collect();
+    lines_vec.into_iter()
 }
