@@ -4,6 +4,15 @@ use std::fmt::Display;
 pub struct Grid<T> {
     pub vec: Vec<Vec<T>>,
 }
+impl<T> Grid<T> {
+    pub fn size(&self) -> (usize, usize) {
+        if self.vec.len() == 0 {
+            (0, 0)
+        } else {
+            (self.vec.len(), self.vec[0].len())
+        }
+    }
+}
 
 impl<T> From<Vec<Vec<T>>> for Grid<T> {
     fn from(v: Vec<Vec<T>>) -> Self {
