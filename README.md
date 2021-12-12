@@ -18,4 +18,4 @@ cargo run --bin=dayXX
 
 # Haskell solutions
 
-2017, 2018, 2019 solutions were written in Haskell [here](https://github.com/sonowz/advent-of-code-haskell).
+2017, 2018, 2019, 2021 solutions were written in Haskell [here](https://github.com/sonowz/advent-of-code-haskell).
